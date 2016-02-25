@@ -1,5 +1,5 @@
 # -*- coding: cp936 -*-
-# 鏈▼搴忎綔涓篒DA鏉′欢鏂偣鐨別xpression浣跨敤锛岀敤浜庢墽琛屽埌鏌愪竴鍙ヤ唬鐮佹椂dump涓婻0鎸囧悜鐨凴1*R2澶у皬鐨勫唴瀛橈紝鍐欐枃浠舵柟寮忎负杩藉姞鍒版枃浠舵湯灏�
+# 本程序作为IDA条件断点的expression使用，用于执行到某一句代码时dump下R0指向的R1*R2大小的内存，写文件方式为追加到文件末尾
 
 import idc
 import os
@@ -8,9 +8,9 @@ R0 = GetRegValue("R0");
 R1 = GetRegValue("R1");
 R2 = GetRegValue("R2");
 
-if os.path.isfile("E:\\AutoRap\\CODE\\processed.bin"):
-	size = os.path.getsize("E:\\AutoRap\\CODE\\processed.bin");
+if os.path.isfile("%path%\\filename.bin"):
+	size = os.path.getsize("%path%\\filename.bin");
 else:
 	size = 0;
 
-savefile("E:\\AutoRap\\CODE\\processed.bin", size, R0, R1*R2);
+savefile("%path%\\filename.bin", size, R0, R1*R2);
